@@ -1,5 +1,5 @@
 class LottosController < ApplicationController
-  SEED = 5432
+  SEED = 543200
   PICK = 6
   OUT_OF = 49
   def index
