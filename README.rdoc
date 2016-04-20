@@ -1,28 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This shows how weak Ruby's random number generator is.
 
-Things you may want to cover:
+Fire up the rails server and point your browser to:
+http://localhost:3000/lottos
+This generates six random lotto numbers between 0 and 48.
 
-* Ruby version
+Now, gather at least eight sets of numbers using the following
+command, at least eight times:
+curl http://localhost:3000/lottos >> gathered.txt
 
-* System dependencies
+Grab untwister from https://github.com/altf4/untwister and
+compile and run it:
+./untwister -i ../fakelotto/gathered.txt -m 0 -M 49 -r ruby-rand
 
-* Configuration
+This will determine the seed. Run a rake task with the determined
+seed, and see a set of twenty lotto picks:
+bundle exec rake tasks:attack[543200]
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Buy those lotto tickets. Win! Not really. But if you point your
+browser back to:
+http://localhost:3000/lottos
+you'll see one of those sets of numbers show up.
