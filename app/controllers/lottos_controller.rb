@@ -5,7 +5,7 @@ class LottosController < ApplicationController
   def index
     numbers = []
     PICK.times.each do
-      numbers << generator.rand(OUT_OF)
+      numbers << generator.rand(OUT_OF) + 1
     end
     render text: numbers.join("\n") + "\n"
   end

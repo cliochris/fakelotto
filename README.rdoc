@@ -4,7 +4,7 @@ This shows how weak Ruby's random number generator is.
 
 Fire up the rails server and point your browser to:
 http://localhost:3000/lottos
-This generates six random lotto numbers between 0 and 48.
+This generates six random lotto numbers between 1 and 49.
 
 Now, gather at least eight sets of numbers using the following
 command, at least eight times:
@@ -12,7 +12,7 @@ curl http://localhost:3000/lottos >> gathered.txt
 
 Grab untwister from https://github.com/altf4/untwister and
 compile and run it:
-./untwister -i ../fakelotto/gathered.txt -m 0 -M 49 -r ruby-rand
+./untwister -i ../fakelotto/gathered.txt -m 1 -M 50 -r ruby-rand
 
 This will determine the seed. Run a rake task with the determined
 seed, and see a set of twenty lotto picks:
